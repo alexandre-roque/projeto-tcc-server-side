@@ -1,12 +1,12 @@
 import NextAuth, { NextAuthConfig } from "next-auth";
-import GitHub from "next-auth/providers/GitHub";
+// import GitHub from "next-auth/providers/GitHub";
 import DiscordProvider from "next-auth/providers/discord";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/db";
 
 export const authConfig = {
 	providers: [
-		GitHub,
+		// GitHub,
 		DiscordProvider({
 			clientId: process.env.DISCORD_CLIENT_ID!,
 			clientSecret: process.env.DISCORD_CLIENT_SECRET!,

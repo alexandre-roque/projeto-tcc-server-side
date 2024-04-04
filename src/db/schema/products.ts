@@ -17,3 +17,5 @@ export const products = sqliteTable("product", {
 		mode: "timestamp",
 	}).default(sql`(STRFTIME('%s', 'now') * 1000)`),
 });
+
+export type product = typeof products.$inferSelect;

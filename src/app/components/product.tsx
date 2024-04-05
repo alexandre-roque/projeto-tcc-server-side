@@ -1,6 +1,6 @@
 import { product } from "../../db/schema/products";
 
-export default async function Product({ product }: { product: product }) {
+export default function Product({ product }: { product: product }) {
 	return (
 		<div className="group relative max-w-[40ch]">
 			<div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">

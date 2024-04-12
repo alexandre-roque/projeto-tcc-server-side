@@ -18,14 +18,14 @@ export default function Navbar() {
 					</Button>
 				</SheetTrigger>
 				<SheetContent side="left">
-					<Link className="mr-6 hidden lg:flex" href="#">
+					<Link className="mr-6 hidden lg:flex" href="/">
 						<MountainIcon className="h-6 w-6" />
 						<span className="sr-only">Acme Inc</span>
 					</Link>
 					<div className="grid gap-2 py-6">
 						<Link
 							className="flex w-full items-center py-2 text-lg font-semibold"
-							href="#"
+							href="/"
 						>
 							Home
 						</Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
 					</div>
 				</SheetContent>
 			</Sheet>
-			<Link className="mr-6 hidden md:flex pr-4" href="#">
+			<Link className="mr-6 hidden md:flex pr-4" href="/">
 				<MountainIcon className="h-6 w-6" />
 				<span className="sr-only">Acme Inc</span>
 			</Link>

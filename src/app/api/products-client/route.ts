@@ -8,7 +8,13 @@ export async function POST(request: Request) {
 
 	// const productsResult = allProducts.products.slice(0, limit || 10);
 	const productsResult = await db
-		.select()
+		.select({
+			price: products.price,
+			name: products.name,
+			description: products.description,
+			imageUrl: products.imageUrl,
+			id: products.id,
+		})
 		.from(products)
 		.limit(limit || 10);
 
@@ -24,7 +30,16 @@ export async function GET(request: Request) {
 	const limit = parseInt(searchParams.get('limit') || '10');
 
 	// const productsResult = allProducts.products.slice(0, limit);
-	const productsResult = (await db.select().from(products)).slice(0, limit);
+	const productsResult = await db
+		.select({
+			price: products.price,
+			name: products.name,
+			description: products.description,
+			imageUrl: products.imageUrl,
+			id: products.id,
+		})
+		.from(products)
+		.limit(limit || 10);
 
 	console.log(productsResult);
 

@@ -24,10 +24,7 @@ export async function GET(request: Request) {
 	const limit = parseInt(searchParams.get('limit') || '10');
 
 	// const productsResult = allProducts.products.slice(0, limit);
-	const productsResult = await db
-		.select()
-		.from(products)
-		.limit(limit || 10);
+	const productsResult = (await db.select().from(products)).slice(0, limit);
 
 	console.log(productsResult);
 

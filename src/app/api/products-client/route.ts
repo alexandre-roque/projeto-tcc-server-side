@@ -1,9 +1,18 @@
+import { db } from '@/db';
+import { products } from '@/db/schema/products';
+
 export const revalidate = 0;
 
 export async function POST(request: Request) {
-	const requestData = await request.json();
+	const { limit } = await request.json();
 
-	const productsResult = allProducts.products.slice(0, requestData.limit || 10);
+	// const productsResult = allProducts.products.slice(0, limit || 10);
+	const productsResult = await db
+		.select()
+		.from(products)
+		.limit(limit || 10);
+
+	console.log(productsResult);
 
 	return Response.json({
 		products: productsResult,
@@ -12,9 +21,15 @@ export async function POST(request: Request) {
 
 export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url);
-	const limit = searchParams.get('limit');
+	const limit = parseInt(searchParams.get('limit') || '10');
 
-	const productsResult = allProducts.products.slice(0, parseInt(limit || '10'));
+	// const productsResult = allProducts.products.slice(0, limit);
+	const productsResult = await db
+		.select()
+		.from(products)
+		.limit(limit || 10);
+
+	console.log(productsResult);
 
 	return Response.json({
 		products: productsResult,
